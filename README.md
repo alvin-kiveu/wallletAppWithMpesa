@@ -7,11 +7,17 @@
 
 This is a wallet app that is intergrated with lipa na mpesa. It allows users to send money to other users and also to pay for goods and services using mpesa.
 
+## Youtube Explanation
+
+[![Watch on Youtube](https://img.youtube.com/vi/86ilr3xlzZc/0.jpg)](https://www.youtube.com/watch?v=86ilr3xlzZc)
+
 ## Surport and Contact Details
 
 For any comments,surport or feedback reach me through:
 
-* Email:
+* Tel or Whatsapp: +254 11 301 5674 
+
+* Email: info@umeskiasoftwares.com
 
 ## Technologies Used
 
