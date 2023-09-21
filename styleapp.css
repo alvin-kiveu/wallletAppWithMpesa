@@ -160,3 +160,24 @@ table tr td{
 .tableholder{
   overflow: auto;
 }
+
+.account-panel{
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 2%;
+  color:rgb(0, 0, 0);
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #006653;
+  font-size: 10px;
+}
+.account-logout a{
+  text-decoration: none;
+  color: #cd0000;
+  padding: 10px;
+  margin-left: 10px;
+}
+.loginuser{
+  color: #006653;
+}
