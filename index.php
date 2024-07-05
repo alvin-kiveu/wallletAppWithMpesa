@@ -5,6 +5,7 @@ if (isset($_POST['deposit'])) {
   $amount = $_POST['amount'];
   $accountnumber = $_POST['accountnumber'];
   $phone = $_POST['phone'];
+  $callbackurl = 'https://'.$_SERVER['HTTP_HOST'].'/test/WalletApp/callback.php';
   //CHECK IN FIRST 3 DIGITS IS 254
   $first3digits = substr($phone, 0, 3);
   if($first3digits == '254'){
@@ -13,16 +14,15 @@ if (isset($_POST['deposit'])) {
     $phone = '254'.(int)$phone;
   }
   date_default_timezone_set('Africa/Nairobi');
-  $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-  $callbackurl = ''; //Fill with your callback url for stk push use your website url or Ngrok url
-  $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
-  $BusinessShortCode = '174379';
+  $processrequestUrl = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+  $passkey = "84f5203ba829a446e37fe786c9082b6b49d311a55ca6543bfb7dcb3e0e65c459";
+  $BusinessShortCode = '7373854';
   $Timestamp = date('YmdHis');
   // ENCRIPT  DATA TO GET PASSWORD
   $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
  //phone number to receive the stk push
-  $money =$amount;
-  $PartyA = $phone;
+  $money = $amount;
+  $PartyA = '9331755';
   $PartyB = '254708374149';
   $AccountReference = $accountnumber;
   $TransactionDesc = 'stkpush test';
@@ -37,11 +37,11 @@ if (isset($_POST['deposit'])) {
     'BusinessShortCode' => $BusinessShortCode,
     'Password' => $Password,
     'Timestamp' => $Timestamp,
-    'TransactionType' => 'CustomerPayBillOnline',
+    'TransactionType' => 'CustomerBuyGoodsOnline',
     'Amount' => $Amount,
-    'PartyA' => $PartyA,
-    'PartyB' => $BusinessShortCode,
-    'PhoneNumber' => $PartyA,
+    'PartyA' => $phone,
+    'PartyB' => '9331755',
+    'PhoneNumber' => $phone,
     'CallBackURL' => $callbackurl,
     'AccountReference' => $AccountReference,
     'TransactionDesc' => $TransactionDesc
@@ -70,7 +70,10 @@ if (isset($_POST['deposit'])) {
   }elseif(isset($_GET['error'])){
     echo "<p style='color:red'>".$_GET['error']."</p>";
   }
+
   ?>
+
+
   <input type="number" name="amount" placeholder="Amount" required>
   <input type="text" name="accountnumber" placeholder="Account Number" required>
   <input type="number" name="phone" placeholder="Phone Number" required>

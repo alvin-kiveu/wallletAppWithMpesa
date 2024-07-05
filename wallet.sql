@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2023 at 02:52 AM
+-- Generation Time: May 02, 2024 at 12:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -37,7 +37,7 @@ CREATE TABLE `accounbalance` (
 --
 
 INSERT INTO `accounbalance` (`ID`, `balance`) VALUES
-(1, 2);
+(1, 0);
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,29 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`ID`, `MerchantRequestID`, `CheckoutRequestID`, `ResultCode`, `Amount`, `MpesaReceiptNumber`, `PhoneNumber`) VALUES
-(1, '17693-51456280-1', 'ws_CO_20072023032253186768168060', '0', 3, 'RGK8Y69SAG', '254768168060'),
-(2, '83264-66173786-1', 'ws_CO_20072023033435087768168060', '0', 2, 'RGK4Y6BPVW', '254768168060');
+(3, '', '', '', 0, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `username` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `phone` varchar(1000) DEFAULT NULL,
+  `password` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `phone`, `password`) VALUES
+(2, 'Alvin Kiveu', 'admin', 'alvo967@gmail.com', '254768168060', '8173306b4dda9469c6b06689a85d4c11');
 
 --
 -- Indexes for dumped tables
@@ -80,6 +101,12 @@ ALTER TABLE `transactions`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -93,7 +120,13 @@ ALTER TABLE `accounbalance`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,6 +41,7 @@ if (mysqli_num_rows($getAccountData) > 0) {
     <div class="login form">
       <div class="containerholder">
         <h1>Wallet App</h1>
+ 
 
         <div class="accout" id="account">
           <h2>Account Balance</h2>
@@ -49,6 +50,7 @@ if (mysqli_num_rows($getAccountData) > 0) {
                   echo number_format($accountBalance, 2);
                   ?></h3>
         </div>
+
         <div class="account-panel">
           <div class="account-name">
             <h2><span class='loginuser'>User Logged in : </span><?php echo  $name; ?></h2>

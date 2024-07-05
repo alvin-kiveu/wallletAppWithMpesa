@@ -4,7 +4,7 @@ if (isset($_POST['genarateqrcode'])) {
   include 'accessToken.php';
   $amount = $_POST['amount'];
   $accountNumber = $_POST['accountNumber'];
-  $DynamicQRUrl = "https://sandbox.safaricom.co.ke/mpesa/qrcode/v1/generate";
+  $DynamicQRUrl = "https://api.safaricom.co.ke/mpesa/qrcode/v1/generate";
   $MerchantName = "UMESKIA TEST PAY";
   $AccountNumber = "umeskia1234";
   $BusinessShortCode = "600997";
